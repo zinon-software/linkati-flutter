@@ -3,12 +3,23 @@ import 'package:get/get.dart';
 
 import '../../controllers/auth_controller.dart';
 
-class LoginView extends StatelessWidget {
+class LoginView extends StatefulWidget {
   const LoginView({Key? key, required this.toggleScreen}) : super(key: key);
 
   static const String id = "LOGIN";
   final Function toggleScreen;
 
+  @override
+  State<LoginView> createState() => _LoginViewState();
+}
+
+class _LoginViewState extends State<LoginView> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    throw ("jhugjygyu");
+  }
   @override
   Widget build(BuildContext context) {
     final AuthController loginController = Get.find();
@@ -111,7 +122,7 @@ class LoginView extends StatelessWidget {
                           //       )
                           //     :
                           child: const Text(
-                            id,
+                            LoginView.id,
                             style: TextStyle(
                               color: Colors.white,
                               fontFamily: "Billabong",
@@ -128,7 +139,7 @@ class LoginView extends StatelessWidget {
                         children: [
                           const Text("Don't have an account ?"),
                           TextButton(
-                            onPressed: () => toggleScreen(),
+                            onPressed: () => widget.toggleScreen(),
                             child: const Text("RGISTER"),
                           ),
                         ],

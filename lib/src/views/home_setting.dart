@@ -32,7 +32,7 @@ class _HomeScreenControlState extends State<HomeScreenControl> {
   final List<Widget> _children = [
     const MainView(),
     const SearchView(),
-    if (prefs!.getInt('user_id') != 1) const FromPostView(),
+    const FromPostView(),
     const NotifiyView(),
     ProfileView(user: prefs!.getInt('user_id')),
     if (prefs!.getInt('user_id') == 1) const AdminView(),
@@ -50,7 +50,7 @@ class _HomeScreenControlState extends State<HomeScreenControl> {
           currentIndex: _selectedTab,
           dotIndicatorColor: Colors.white,
           unselectedItemColor: Colors.grey[500],
-          // enableFloatingNavBar: false,
+          enableFloatingNavBar: (prefs!.getInt('user_id') != 1) ? true : false,
           onTap: _handleIndexChanged,
           items: [
             /// Home
@@ -66,7 +66,6 @@ class _HomeScreenControlState extends State<HomeScreenControl> {
             ),
 
             /// Add Post
-            if (prefs!.getInt('user_id') != 1)
               DotNavigationBarItem(
                 icon: const Icon(Icons.add_link_sharp),
                 selectedColor: const Color(0xff73544C),

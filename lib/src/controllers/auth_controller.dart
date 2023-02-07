@@ -36,6 +36,7 @@ class AuthController extends GetxController with BaseController {
     prefs!.setString("token", dataToken!.token.toString());
     prefs!.setInt("user_id", dataToken!.id!.toInt());
     prefs!.setInt("coins", 3);
+    GlobalBindings().dependencies();
     Get.offAll(() => HomeScreenControl());
   }
 

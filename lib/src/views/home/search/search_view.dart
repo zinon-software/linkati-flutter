@@ -35,34 +35,66 @@ class SearchView extends StatelessWidget {
                   Get.to(() => ProfileView(
                       user: usersController.userList[index].user.id));
                 },
-                child: Card(
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      child: ClipOval(
-                        child: Image(
-                          height: 50.0,
-                          width: 50.0,
-                          image: usersController.userList[index].avatar == ''
-                              ? const NetworkImage(
-                                  'https://cdn.dribbble.com/users/1577045/screenshots/4914645/media/5146d1dbf9146c4d12a7249e72065a58.png')
-                              : NetworkImage(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 10.0, vertical: 5.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(25.0),
+                    ),
+                    child: ListTile(
+                      leading: Container(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0x73000000),
+                              offset: Offset(0, 2),
+                              blurRadius: 6.0,
+                            ),
+                          ],
+                        ),
+                        child: CircleAvatar(
+                          child: ClipOval(
+                            child: Image(
+                              height: 50.0,
+                              width: 50.0,
+                              image: NetworkImage(
                                   usersController.userList[index].avatar),
-                          fit: BoxFit.cover,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
                         ),
                       ),
+                      title: usersController.userList[index].name == null
+                          ? Text(
+                              usersController.userList[index].user.username,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )
+                          : Text(
+                              usersController.userList[index].name,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                      subtitle: Row(
+                        children: [
+                          Text(
+                              "يتابعة ${usersController.userList[index].followers.length.toString()}"),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                              "عدد المنشورات ${usersController.userList[index].posts}"),
+                        ],
+                      ),
+                      trailing: const Icon(Icons.more_horiz),
                     ),
-                    title: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        usersController.userList[index].name == null
-                            ? Text(
-                                usersController.userList[index].user.username)
-                            : Text(usersController.userList[index].name),
-                        Text(
-                            "يتابعة ${usersController.userList[index].followers.length.toString()}"),
-                      ],
-                    ),
-                    trailing: const Icon(Icons.more_vert),
                   ),
                 ),
               ),

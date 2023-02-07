@@ -58,7 +58,7 @@ class RewardedAdController extends GetxController {
         // Reward the user for watching an ad.
         log("rewarded item type = ${rewardItem.type}");
         log("rewarded item amount = ${rewardItem.amount}");
-        int amount = prefs!.getInt("coins")! + 1 ;
+        int amount = prefs!.getInt("coins")! + 3 ;
         myCoins(amount);
         prefs!.setInt("coins", amount);
         log("my coins item amount = ${prefs!.get("coins")}");

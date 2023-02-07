@@ -25,6 +25,19 @@ Future<void> main() async {
   GlobalBindings().dependencies();
 
   MobileAds.instance.initialize();
+
+  ErrorWidget.builder =(FlutterErrorDetails details) {
+    return  Material(
+      child: Container(color: Colors.green, child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children:  [ 
+          Text(details.exception.toString(),
+          style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white,),
+          ),
+        ],
+      ),),
+    );
+  };
   
   runApp(const MyApp());
 }
@@ -53,14 +66,14 @@ class GlobalBindings extends Bindings {
   @override
   void dependencies() {
     // ignore: unused_local_variable
-    final PostController postController = Get.put(PostController(), permanent: true);
+    Get.put(PostController(), permanent: true);
     // ignore: unused_local_variable
-    final UsersController usersControllerController = Get.put(UsersController());
+    Get.put(UsersController());
     // ignore: unused_local_variable
-    final fromPostController = Get.lazyPut(() => FromPostController(), fenix: true);
+    Get.lazyPut(() => FromPostController(), fenix: true);
     // ignore: unused_local_variable
-    final notifyController = Get.lazyPut(() => NotificationController(), fenix: true);
+    Get.lazyPut(() => NotificationController(), fenix: true);
     // ignore: unused_local_variable
-    final likeController = Get.lazyPut(() => LikeController(), fenix: true);
+    Get.lazyPut(() => LikeController(), fenix: true);
   }
 }
