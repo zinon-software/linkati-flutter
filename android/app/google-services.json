@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "623939344647",
+    "project_id": "whatsapp-group-link-bef0d",
+    "storage_bucket": "whatsapp-group-link-bef0d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:623939344647:android:dc50c2f036ce6492abcda2",
+        "android_client_info": {
+          "package_name": "com.zainon.whatsapp_group_links"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "623939344647-uh94sfs0pdpfo5ble3jl6b7m52gde6uf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpN4jXJF_ktNVyMV_goqUi83GmilAtdYE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "623939344647-uh94sfs0pdpfo5ble3jl6b7m52gde6uf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "623939344647-q42qjkl9fqgjvm4nr78rabsttgsjgvmr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.zainon.whatsappGroupLinks"
+              }
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-9553130506719526~4832613298"
+    }
+  ],
+  "configuration_version": "1"
+}
