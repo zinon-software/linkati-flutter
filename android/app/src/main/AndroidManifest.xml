@@ -2,7 +2,7 @@
     <application
         android:label="قروباتي"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
 
         
         <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->

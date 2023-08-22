@@ -12,7 +12,7 @@ String? urlServer, bannarIsAd, interstIsAd, nativeIsAd;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-   await Firebase.initializeApp(
+  await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
@@ -53,17 +53,45 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: Colors.green,
+        colorScheme: const ColorScheme(
+          brightness: Brightness.light,
+          primary: Colors.green, // لون العنصر الأساسي
+          secondary: Colors.blue, // لون العنصر الثانوي
+          background: Colors.white, // لون الخلفية
+          surface: Colors.white, // لون السطح (مثل خلفية البطاقات)
+          error: Colors.red, // لون الخطأ
+          onPrimary: Colors.white, // لون النص على العنصر الأساسي
+          onSecondary: Colors.white, // لون النص على العنصر الثانوي
+          onBackground: Colors.black, // لون النص على الخلفية
+          onSurface: Colors.black, // لون النص على السطح
+          onError: Colors.white, // لون النص على الخطأ
+          
+        ),
+        useMaterial3: true,
+        appBarTheme: const AppBarTheme(
+          shadowColor: Colors.transparent,
+          surfaceTintColor: Colors.transparent,
+        ),
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          shape: RoundedRectangleBorder(
+            // إضافة BorderRadius للتغيير في شكل الزوايا
+            borderRadius: BorderRadius.circular(30),
+          ),
+        ),
+      ),
       themeMode: ThemeMode.dark,
-      localizationsDelegates: [
+      localizationsDelegates: const [
         GlobalCupertinoLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
-      supportedLocales: [Locale("ar", "AE")],
-      locale: Locale("ar", "AE"),
-      home: HomeScreen(),
+      supportedLocales: const [Locale("ar", "AE")],
+      locale: const Locale("ar", "AE"),
+      home: const HomeScreen(),
     );
 
     // const GetMaterialApp(
